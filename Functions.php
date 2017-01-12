@@ -119,16 +119,16 @@ public function SendMail($msg_type,$msg_nature, $service_needed, $sender_name, $
     $from = $sender_mailid;
     $from_name = $sender_name;
     $subject = $sender_subject;
-    $body = '<!DOCTYPE html><html><head><style media="screen">.container{background-color: #f7f7f7;width: 100%;padding: 25px 0 ;}.row{padding: 0 15px;}.subjectdiv{padding-top: 15px;padding-bottom: 15px;font-size: 18px;border-bottom: 1px solid #ccc;margin-bottom: 40px;}.semicoln{text-align: center;}td{font-size: 14px;}</style></head><body><div class="container"><div class="row"><div class="subjectdiv"><div class="subject"><b>' .$sender_subject. '</b> - From Ranipradeepkumar.com</div></div><table><tr><td>Send by </td><td class="semicoln">:</td><td>'. $sender_name .'</td></tr><tr><td>From mail</td><td>:</td><td>'.$sender_mailid.'</td></tr><tr><td>Message Type</td><td>:</td><td>'.$msg_type.'</td></tr><tr><td>Work Nature</td><td>:</td><td>'.$msg_nature.'</td></tr><tr><td>Service Needed</td><td>:</td><td>'.$service_needed.'</td></tr></table><p> <b>Message : </b><br><br>'.$sender_msg.'</p></div></div></body></html>';
-    $to = "jeybin@gmail.com";
+    $body = 'here goes your message as text or can use html codes';
+    $to = "reciever mail id";
     $mail = new PHPMailer;  // create a new object
     $mail->IsSMTP(); // enable SMTP   //
     $mail->SMTPAuth = true;  // authentication enabled
     $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 465;
-    $mail->Username = "ranimailer@gmail.com";
-    $mail->Password = "9961_Rani";
+    $mail->Username = "yourmailid";
+    $mail->Password = "yourpassword";
     $mail->SetFrom($from, $from_name);
     $mail->addReplyTo($from);
     $mail->Subject = $subject;
@@ -146,14 +146,14 @@ public function SendMail($msg_type,$msg_nature, $service_needed, $sender_name, $
         return false;
     } else {
         echo '<script type="text/javascript">';
-        echo 'alert("Thank you for contacting us. We will respond to your message as soon as possible");';
-        echo 'window.location="../index.php";';
+        echo 'alert("Sucess Message");';
+        echo 'window.location="page to show after sucess message shows";';
         echo '</script>';
         return true;
     }
 }
 
-// File Uploading
+// File Uploading (single uploads)
 public function uploads($file, $dest) {
     $Imagefile = $_FILES[$file];
 //file properties
@@ -194,7 +194,10 @@ public function uploads($file, $dest) {
     }
 }
 
+    // multiple file upload
+    public function multiplefileupload(){
 
+    }
 
 }
 
